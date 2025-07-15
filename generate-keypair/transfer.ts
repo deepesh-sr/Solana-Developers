@@ -41,13 +41,13 @@ const sendSolInstruction = SystemProgram.transfer({
 transaction.add(sendSolInstruction);
 
 const startTime = Date.now();
-// console.log(startTime);
+console.log(startTime);
 // send the transaction to the cluster for confirmation 
 const signature = await sendAndConfirmTransaction(connection,transaction,[senderKeypair])
 
-// const endTime = Date.now();
-// console.log(endTime);
+const endTime = Date.now();
+console.log(endTime);
 console.log(
-  `💸 Finished! Sent ${LAMPORTS_TO_SEND} to the address ${receiverKeypair}. in  seconds `,
+  `💸 Finished! Sent ${LAMPORTS_TO_SEND} to the address ${receiverKeypair}, in ${startTime-endTime}  milliseconds `,
 );
 console.log(`Transaction signature is ${signature}!`);
